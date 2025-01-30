@@ -29,16 +29,16 @@ public class CarouselTutorialFlowTest {
     public void testCarouselTutorial() throws InterruptedException{
 
         WebElement ahorra = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Ahorra para el futuro\"]")));
-        ScreenshotUtils.takeScreenshot(driver, 3, "Carrusel Informativo");
+        ScreenshotUtils.takeScreenshot(driver,"Carrusel Informativo");
 
         SwipeUtils.swipeHorizontal(driver, 0.8, 0.2, 0.5, 1000);
         WebElement sinCambiar = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Sin cambiar tus hábitos\"]")));
-        ScreenshotUtils.takeScreenshot(driver, 4, "Carrusel Informativo");
+        ScreenshotUtils.takeScreenshot(driver,"Carrusel Informativo");
 
         SwipeUtils.swipeHorizontal(driver, 0.8, 0.2, 0.5, 1000);
 
         WebElement empezarButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.Button[@text=\"Empezar\"]")));
-        ScreenshotUtils.takeScreenshot(driver, 5, "Carrusel Informativo");
+        ScreenshotUtils.takeScreenshot(driver,"Carrusel Informativo");
     }
 
     @AfterClass

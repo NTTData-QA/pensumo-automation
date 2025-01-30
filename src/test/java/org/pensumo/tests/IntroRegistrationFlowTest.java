@@ -48,14 +48,14 @@ public class IntroRegistrationFlowTest {
 
         // After Login
         WebElement hola = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"Hola,\"]")));
-        ScreenshotUtils.takeScreenshot(driver, 16, "Introducción"); // Screenshot 2
+        ScreenshotUtils.takeScreenshot(driver,"Introducción"); // Screenshot 2
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
 
         Thread.sleep(1000);
         // After swipe
-        ScreenshotUtils.takeScreenshot(driver, 17, "Introducción"); // Screenshot 2
+        ScreenshotUtils.takeScreenshot(driver,"Introducción"); // Screenshot 2
 
     }
 
