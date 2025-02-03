@@ -122,7 +122,7 @@ public class CorrectPersonalDataFlowTest {
 
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
 
-        SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
+        /*SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
         WebElement radioButtonCommercialComunicationsNo2 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
         radioButtonCommercialComunicationsNo2.click();
 
@@ -146,8 +146,8 @@ public class CorrectPersonalDataFlowTest {
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         radioButtonAcceptCommercialComunications.click();
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
-
+        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");*/
+        Thread.sleep(20000);
     }
 
     public static void swipeUntilElementFound(WebDriver driver, By locator, int maxSwipes) {
