@@ -11,6 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.time.Duration;
+import java.util.List;
 
 
 public class CorrectPersonalDataFlowTest {
@@ -28,25 +29,21 @@ public class CorrectPersonalDataFlowTest {
         LoginUtils.handleIntroPage(driver, wait);
         WebElement headParsonalData = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Datos personales y creación de cuenta\"]")));
 
-        //Filling fields for wrong test
+        //Filling fields for right test
         //Name
-        WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. Pilar\"]")));
-        nameField.sendKeys("FULANITO");
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. Pilar\"]"), "FULANITO", "Name");
 
         //surname
-        WebElement surnameField = driver.findElement(By.xpath("//android.widget.EditText[@text=\"ej. Perez García\"]"));
-        surnameField.sendKeys("MENGANITO");
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. Perez García\"]"), "MENGANITO", "Surname");
 
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        // SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
 
         //Dni
-        WebElement dniField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. 56743917R\"]")));
-        dniField.sendKeys("25464149K");
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. 56743917R\"]"), "25464149K", "DNI");
 
         //Date of Birth
-        WebElement birthField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text=\"ej. 01/01/2006\"]")));
-        birthField.click();
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.TextView[@text=\"ej. 01/01/2006\"]"), "Birth Date");
 
         Thread.sleep(1000);
         //Choose Year
@@ -69,85 +66,100 @@ public class CorrectPersonalDataFlowTest {
         buttonOK.click();
 
         //MobilePhone
-        WebElement phoneField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. 000 000 000\"]")));
-        phoneField.sendKeys("699505050");
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. 000 000 000\"]"), "699505050", "Phone");
+
+//        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+//        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+//        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
-        WebElement generalConditions = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Condiciones Generales\"]"));
-        generalConditions.click();
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.TextView[@text=\"Condiciones Generales\"]"), "Condiciones Generales");
         Thread.sleep(3000);
 
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
 
+        Thread.sleep(2000);
         //implementare cancel e cerrar
-        WebElement downloadConditions = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Descargar Condiciones de uso\"]"));
-        downloadConditions.click();
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.TextView[@text=\"Descargar Condiciones de uso\"]"), "Descargar Condiciones de uso");
         Thread.sleep(3000);
 
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
 
         driver.navigate().back();
-        WebElement cerrarDCWindow = driver.findElement(By.xpath("//android.widget.Button[@text=\"Cerrar\"]"));
-        cerrarDCWindow.click();
-        WebElement radioButtonConditions = driver.findElement(By.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"));
-        radioButtonConditions.click();
+
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.Button[@text=\"Cerrar\"]"), "Cerrar");
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"), "RadioButton Condiciones Generales");
 
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
 
         Thread.sleep(1000);
-        WebElement continuarButton = driver.findElement(By.xpath("//android.widget.Button[@text=\"Continuar\"]"));
-        continuarButton.click();
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.Button[@text=\"Continuar\"]"), "Continuar");
+        Thread.sleep(2000);
+
+        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+
+        // SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        // Thread.sleep(1000);
+        ElementUtils.clickOrScroll(
+            driver,
+            AppiumBy.androidUIAutomator(
+                "new UiSelector().text(\"Información Básica de Protección de Datos Personales\")"),
+            "Información Básica de Protección de Datos Personales");
         Thread.sleep(1000);
 
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
 
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        WebElement basicInfoButton = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Información Básica de Protección de Datos Personales\"]"));
-        basicInfoButton.click();
+        ElementUtils.clickOrScroll(driver, By.xpath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup[1]"), "RadioButton Información Básica de Protección de Datos Personales");
         Thread.sleep(1000);
-
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
-
-        WebElement basicInfoRadioButton = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup[1]"));
-        basicInfoRadioButton.click();
-        Thread.sleep(1000);
-        WebElement basicInfoContinuarButton = driver.findElement(By.xpath("//android.widget.Button[@text=\"Continuar\"]"));
-        basicInfoContinuarButton.click();
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.Button[@text=\"Continuar\"]"), "Continuar");
         Thread.sleep(3000);
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        WebElement radioButtonCommercialComunicationsNo1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']")));
-        radioButtonCommercialComunicationsNo1.click();
-
+        // SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        // Loop to find and click all instances of "No" with checked=false
         ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
-
-        /*SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
-        WebElement radioButtonCommercialComunicationsNo2 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
-        radioButtonCommercialComunicationsNo2.click();
-
-        SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
-        WebElement radioButtonCommercialComunicationsSi3 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
-        radioButtonCommercialComunicationsSi3.click();
-
-        SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
-        WebElement radioButtonCommercialComunicationsSi4 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
-        radioButtonCommercialComunicationsSi4.click();
-
-        SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
-        WebElement radioButtonAcceptCommercialComunications = driver.findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup"));
-        radioButtonAcceptCommercialComunications.click();
-
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
-
-        WebElement radioButtonCommercialComunicationsNo5 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
-        radioButtonCommercialComunicationsNo5.click();
-
+        int counter = 0;
+        while (counter < 4) {
+          try {
+            List<WebElement> radioButtons =
+                driver.findElements(
+                    By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
+            for (WebElement radioButton : radioButtons) {
+              if (counter < 4) {
+                radioButton.click();
+                counter++;
+                // ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+              } else {
+                break;
+              }
+            }
+            SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+          } catch (Exception e) {
+            System.err.println("Error while clicking radio buttons: " + e.getMessage());
+          }
+        }
+        // SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+//        while (true) {
+//          try {
+//        WebElement confirmo =
+//            driver.findElement(
+//                AppiumBy.androidUIAutomator(
+//                    "new UiSelector().textContains(\"Confirmo\").fromParent(new UiSelector().className(\"android.view.ViewGroup\"))"));
+//              confirmo.click();
+//              break;
+//          } catch (NoSuchElementException e) {
+//            System.out.println(e);
+//
+//            SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+//          }
+//        }
+        ElementUtils.clickOrScroll(
+            driver,
+            AppiumBy.androidUIAutomator(
+                "new UiSelector().textContains(\"Confirmo\").fromParent(new UiSelector().className(\"android.view.ViewGroup\"))"),
+            "Confirmo");
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        radioButtonAcceptCommercialComunications.click();
-
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");*/
-        Thread.sleep(20000);
+    System.out.println("Sleep for 3 seconds");
+        Thread.sleep(3000);
+        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        Thread.sleep(2000);
     }
 
     public static void swipeUntilElementFound(WebDriver driver, By locator, int maxSwipes) {

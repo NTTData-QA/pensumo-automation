@@ -63,26 +63,18 @@ public class WrongPersonalDataFlowTest {
 
         //Filling fields for wrong test
         //Name
-        WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. Pilar\"]")));
-        nameField.click();
-        nameField.sendKeys("AA");
-        nameField.clear();
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. Pilar\"]"), "Name Field");
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. Pilar\"]"), "AA", "Name Field", true);
         driver.hideKeyboard();
         //surname
-        WebElement surnameField = driver.findElement(By.xpath("//android.widget.EditText[@text=\"ej. Perez García\"]"));
-        surnameField.click();
-        surnameField.sendKeys("AA");
-        surnameField.clear();
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. Perez García\"]"), "AA", "Surname Field", true);
         driver.hideKeyboard();
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        // SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         ScreenshotUtils.takeScreenshot(driver, "Datos personales");
         //Dni
-        WebElement dniField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. 56743917R\"]")));
-        dniField.click();
-        dniField.sendKeys("329459");
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. 56743917R\"]"), "329459", "Dni Field");
         //Date of Birth
-        WebElement birthField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text=\"ej. 01/01/2006\"]")));
-        birthField.click(); // Assicurati che il campo sia attivo
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.TextView[@text=\"ej. 01/01/2006\"]"), "Birth Field");
         //Choose Year
         WebElement  choseYear = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("android:id/date_picker_header_year")));
         choseYear.click();// clicca sull'anno
@@ -93,8 +85,7 @@ public class WrongPersonalDataFlowTest {
         WebElement  buttonOK = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("android:id/button1")));
         buttonOK.click();
         //MobilePhone
-        WebElement phoneField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. 000 000 000\"]")));
-        phoneField.sendKeys("0000000");
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@text=\"ej. 000 000 000\"]"), "0000000", "Phone Field");
 
         ScreenshotUtils.takeScreenshot(driver, "Datos personales");
         /*

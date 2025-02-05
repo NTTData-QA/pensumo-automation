@@ -3,13 +3,16 @@ package org.pensumo.tests;
 
 
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.pensumo.utils.DriverManagerUtils;
+import org.pensumo.utils.ElementUtils;
 import org.pensumo.utils.ScreenshotUtils;
+import org.pensumo.utils.SwipeUtils;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -33,21 +36,23 @@ public class ForgetPasswordFlowTest {
 
         WebElement startSessionButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.view.View[@content-desc=\"Iniciar sesión\"]")));
         startSessionButton.click();
-        WebElement forgetPassword = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Olvidé mi contraseña\"]"));
-        forgetPassword.click();
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.view.View[@content-desc=\"Olvidé mi contraseña\"]"), "Forget Password Button");
 
         Thread.sleep(1000);
         ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña");
 
-        WebElement nameField = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"uname\"]"));
-        nameField.sendKeys("corsiero.iary@libero.it");
-        WebElement sendButton = driver.findElement(By.xpath("//android.widget.Button[@resource-id=\"pwd_email_send\"]"));
-        sendButton.click();
+        ElementUtils.sendKeysOrScroll(driver, By.xpath("//android.widget.EditText[@resource-id=\"uname\"]"),"corsiero.iary@libero.it", "email");
+
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.Button[@resource-id=\"pwd_email_send\"]"), "Send Button");
 
         Thread.sleep(1000);
         ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña");
-        //ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña_CHANGE");
-        //ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña_CHANGE");
+
+        ElementUtils.clickOrScroll(driver, By.xpath("//android.widget.EditText[@resource-id=\"code1\"]"), "Code1");
+        // hide keyboard
+        driver.hideKeyboard();
+        ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña");
+        Thread.sleep(1000);
 
     }
 

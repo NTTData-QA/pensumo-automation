@@ -67,7 +67,9 @@ public class LoginUtils {
     private static final By USERNAME_FIELD = By.xpath("//android.widget.EditText[@resource-id=\"uname\"]");
     private static final By PASSWORD_FIELD = By.xpath("//android.widget.EditText[@resource-id=\"upassword\"]");
     private static final By LOGIN_BUTTON = By.xpath("//android.widget.Button[@resource-id=\"login_btn\"]");
-    private static final By NEXT_BUTTON = By.xpath("//android.widget.ImageButton");
+    // private static final By NEXT_BUTTON = By.xpath("//android.widget.ImageButton");
+    // Use new UiSelector().className("android.widget.ImageButton") to find element
+    private static final By NEXT_BUTTON = AppiumBy.className("android.widget.ImageButton");
 
     /**
      * Login app.
@@ -111,13 +113,9 @@ public class LoginUtils {
      */
     public static void handleIntroPage(AndroidDriver driver, WebDriverWait wait) {
         try {
-
-            for (int i = 0; i < 3; i++) {
-                SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-            }
-            WebElement nextButton = driver.findElement(NEXT_BUTTON);
-            nextButton.click();
-
+            // Skip back button with the same identifier as NEXT_BUTTON
+            SwipeUtils.swipeVertical(driver, 0.8, 0.7, 0.5, 500);
+            ElementUtils.clickOrScroll(driver, NEXT_BUTTON, "Next Button");
 
             Thread.sleep(5000);
         } catch (Exception e) {

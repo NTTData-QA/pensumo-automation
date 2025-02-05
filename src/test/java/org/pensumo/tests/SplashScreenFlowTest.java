@@ -36,14 +36,16 @@ public class SplashScreenFlowTest {
                     "//android.widget.TextView[@text=\"Un extra para tu futuro con tus compras de hoy\"]")));
 
     ScreenshotUtils.takeScreenshot(driver, "Splash Screen");
-    WebElement loading =
-        wait.until(
-            ExpectedConditions.visibilityOfElementLocated(
-                AppiumBy.xpath(
-                    " //android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")));
+//    WebElement loading =
+//        wait.until(
+//            ExpectedConditions.visibilityOfElementLocated(
+//                AppiumBy.xpath(
+//                    " //android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")));
     // WebElement loading =
     // wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.id("android:id/content")));
+    Thread.sleep(1500);
     ScreenshotUtils.takeScreenshot(driver, "Splash Screen");
+    Thread.sleep(1000);
     // need to improve
     //
   }

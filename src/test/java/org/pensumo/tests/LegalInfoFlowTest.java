@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 
 import java.time.Duration;
+import java.time.chrono.ThaiBuddhistEra;
 
 
 public class LegalInfoFlowTest {
@@ -47,6 +48,7 @@ public class LegalInfoFlowTest {
 
         //After swipe
         ScreenshotUtils.takeScreenshot(driver, "Condiciones de uso"); // Screenshot 2
+        Thread.sleep(3000);
         // If we want to see all Term&Cond we need more screenshot ( almost 29)
 
 

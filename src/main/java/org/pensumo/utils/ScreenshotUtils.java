@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
 public class ScreenshotUtils {
-    private static int screenshotCounter = 3;
+    private static int screenshotCounter = 1;
 
     public static void takeScreenshot(WebDriver driver, String className) {
         File screenshotDir = new File("screenshots");
