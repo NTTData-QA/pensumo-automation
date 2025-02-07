@@ -15,42 +15,58 @@ import org.testng.annotations.Test;
 
 public class ViewMovementFlowTest {
 
-        private AndroidDriver driver;
-        private WebDriverWait wait;
-        @BeforeClass
-        public void setUp() {
+  private AndroidDriver driver;
+  private WebDriverWait wait;
 
-            driver = DriverManagerUtils.initializeDriver();
-            wait = WaitManagerUtils.initializeWait(driver, 60);
-        }
+  @BeforeClass
+  public void setUp() {
 
-        @Test(priority = 12)
-        public void testViewMovement() {
+    driver = DriverManagerUtils.initializeDriver();
+    wait = WaitManagerUtils.initializeWait(driver, 60);
+  }
 
-            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
+  @Test(priority = 12)
+  public void testViewMovement() {
 
-            WebElement accumulatedWidget = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"ACUMULADO\"]")));
-            accumulatedWidget.click();
+    LoginUtils.performLogin(driver, "efatas@gmail.com", "Pensumo2025#");
 
-            //WebElement accumulatedTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("Accumulated title. Añadir Xpath")));
+    WebElement accumulatedWidget =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//android.widget.TextView[@text=\"ACUMULADO\"]")));
+    accumulatedWidget.click();
 
-            ScreenshotUtils.takeScreenshot(driver, 33, "Ver Movimiento");
-            //TODO
-            /*
-            WebElement firstMovementWidjet = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("First Movement widjet. Añadir Xpath")));
-            firstMovementWidjet.click();
+    // WebElement accumulatedTitle =
+    // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("Accumulated title. Añadir
+    // Xpath")));
 
-            WebElement firstMovementTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("First Movement tile. Añadir Xpath")));
+    ScreenshotUtils.takeScreenshot(driver, 32, "Ver Movimiento");
 
-            ScreenshotUtils.takeScreenshot(driver, 34, "Ver Movimiento");
+    WebElement firstMovementWidjet =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//android.widget.TextView[@text=\"Ver movimientos\"]")));
+    firstMovementWidjet.click();
 
+    WebElement firstMovementTitle =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.xpath(
+                    "//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[4]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")));
 
-             */
-        }
+    ScreenshotUtils.takeScreenshot(driver, 33, "Ver Movimiento");
+    firstMovementTitle.click();
+    WebElement firstMovementImage =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.xpath(
+                    "//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")));
 
-        @AfterClass
-        public void tearDown() {
-            DriverManagerUtils.quitDriver();
-        }
-    }
+    ScreenshotUtils.takeScreenshot(driver, 34, "Ver Movimiento");
+  }
 
+  @AfterClass
+  public void tearDown() {
+    DriverManagerUtils.quitDriver();
+  }
+}
