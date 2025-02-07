@@ -11,61 +11,81 @@ import org.pensumo.utils.DriverManagerUtils;
 import org.pensumo.utils.LoginUtils;
 import org.pensumo.utils.ScreenshotUtils;
 import org.pensumo.utils.WaitManagerUtils;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class DataProtectionFlowTest {
 
-        private AndroidDriver driver;
-        private WebDriverWait wait;
-        @BeforeClass
-        public void setUp() {
+  private AndroidDriver driver;
+  private WebDriverWait wait;
 
-            driver = DriverManagerUtils.initializeDriver();
-            wait = WaitManagerUtils.initializeWait(driver, 60);
-        }
+  @BeforeClass
+  public void setUp() {
 
-        @Test(priority = 28)
-        public void testDataProtection() throws InterruptedException {
+    driver = DriverManagerUtils.initializeDriver();
+    wait = WaitManagerUtils.initializeWait(driver, 60);
+  }
 
-            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
+  @Test(priority = 28)
+  public void testDataProtection() throws InterruptedException {
 
-            WebElement profileButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
-            profileButton.click();
+    LoginUtils.performLogin(driver, "efatas@gmail.com", "Pensumo2025#");
 
-            WebElement dataProtection = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Protección de Datos\"]")));
-            dataProtection.click();
+    WebElement profileButton =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath(
+                    "//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
+    profileButton.click();
 
-            WebElement downloadDocument = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.id("com.android.chrome:id/positive_button")));
-            downloadDocument.click();
-            WebElement continueOpenPdf = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.id("com.android.chrome:id/positive_button")));
-            continueOpenPdf.click();
-            WebElement chooseReader = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("(//android.widget.FrameLayout[@resource-id=\"android.miui:id/masklayout\"])[1]")));
-            chooseReader.click();
-            Thread.sleep(3000);
-            ScreenshotUtils.takeScreenshot(driver, 64, "Protección de datos");
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
-            driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    WebElement dataProtection =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@text=\"Protección de Datos\"]")));
+    dataProtection.click();
 
+    WebElement downloadDocument =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.id("com.android.chrome:id/positive_button")));
+    downloadDocument.click();
+    WebElement continueOpenPdf =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.id("com.android.chrome:id/positive_button")));
+    continueOpenPdf.click();
+    WebElement chooseReader =
+        wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath(
+                    "(//android.widget.FrameLayout[@resource-id=\"android.miui:id/masklayout\"])[1]")));
+    chooseReader.click();
+    Thread.sleep(3000);
+    ScreenshotUtils.takeScreenshot(driver, 64, "Protección de datos");
+    /*driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+    driver.pressKey(new KeyEvent(AndroidKey.BACK));*/
 
+    /*
+               WebElement dataProtectionDocument = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.view.ViewGroup[@resource-id=\"com.google.android.apps.docs:id/projector_coordinator\"]")));
+               ScreenshotUtils.takeScreenshot(driver, 64, "Protección de datos");
+               WebElement backButton = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")));
+               backButton.click();
 
+    */
 
-/*
-            WebElement dataProtectionDocument = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.view.ViewGroup[@resource-id=\"com.google.android.apps.docs:id/projector_coordinator\"]")));
-            ScreenshotUtils.takeScreenshot(driver, 64, "Protección de datos");
-            WebElement backButton = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")));
-            backButton.click();
+  }
 
- */
-
-        }
-
-    }
+  @AfterClass
+  public void tearDown() {
+    DriverManagerUtils.quitDriver();
+  }
+}
