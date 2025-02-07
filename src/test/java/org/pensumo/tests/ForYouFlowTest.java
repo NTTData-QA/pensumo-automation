@@ -25,7 +25,7 @@ public class ForYouFlowTest {
         @Test(priority = 14)
         public void testForYou() {
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
 
             //WebElement seeCommerce = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("Ver Comercios widget. Añadir Xpath")));
             //seeCommerce.click();
@@ -34,9 +34,9 @@ public class ForYouFlowTest {
             WebElement forYouPage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Para ti\"]")));
             forYouPage.click();
             WebElement commerceSubPage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"Comercios\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Para ti");
+            ScreenshotUtils.takeScreenshot(driver, 36, "Para ti");
             SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-            ScreenshotUtils.takeScreenshot(driver, "Para ti");
+            ScreenshotUtils.takeScreenshot(driver, 37, "Para ti");
         }
         @AfterClass
         public void tearDown() {

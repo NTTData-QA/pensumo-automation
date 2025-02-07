@@ -36,7 +36,7 @@ public class WrongLoginFlowTest {
 
         startSessionButton.click();
         // After Start Session
-        ScreenshotUtils.takeScreenshot(driver, "Log in");
+        ScreenshotUtils.takeScreenshot(driver, 9, "Log in");
         WebElement userField = driver.findElement(AppiumBy.xpath("//android.widget.EditText[@resource-id='uname']"));
         //WebElement userField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id='uname']")));
         userField.click();
@@ -49,9 +49,9 @@ public class WrongLoginFlowTest {
         WebElement pwdField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id=\"upassword\"]")));
         pwdField.click();
         driver.pressKey(new KeyEvent(AndroidKey.A));
-        driver.pressKey(new KeyEvent(AndroidKey.B));
-        driver.pressKey(new KeyEvent(AndroidKey.C));
-        driver.pressKey(new KeyEvent(AndroidKey.D));
+        driver.pressKey(new KeyEvent(AndroidKey.A));
+        driver.pressKey(new KeyEvent(AndroidKey.A));
+        driver.pressKey(new KeyEvent(AndroidKey.A));
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
         driver.hideKeyboard();
 
@@ -59,7 +59,7 @@ public class WrongLoginFlowTest {
         loginButton.click();
 
         // After WrongName&Pwd
-        ScreenshotUtils.takeScreenshot(driver, "Log in");
+        ScreenshotUtils.takeScreenshot(driver, 10, "Log in");
 
     }
 

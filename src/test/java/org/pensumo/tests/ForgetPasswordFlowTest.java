@@ -31,13 +31,13 @@ public class ForgetPasswordFlowTest {
         WebElement jumpButton = driver.findElement(By.xpath("//android.widget.TextView[@text='Saltar']"));
         jumpButton.click();
 
-        WebElement startSessionButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.view.View[@content-desc=\"Iniciar sesión\"]")));
+        WebElement startSessionButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.view.View[@content-desc=\"Iniciar sesión\"]")));
         startSessionButton.click();
-        WebElement forgetPassword = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Olvidé mi contraseña\"]"));
+        WebElement forgetPassword = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.view.View[@content-desc=\"Olvidé mi contraseña\"]")));
         forgetPassword.click();
 
         Thread.sleep(1000);
-        ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña");
+        ScreenshotUtils.takeScreenshot(driver, 11, "Olvidé mi contraseña"); // Screenshot 1
 
         WebElement nameField = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"uname\"]"));
         nameField.sendKeys("corsiero.iary@libero.it");
@@ -45,9 +45,7 @@ public class ForgetPasswordFlowTest {
         sendButton.click();
 
         Thread.sleep(1000);
-        ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña");
-        //ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña_CHANGE");
-        //ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña_CHANGE");
+        ScreenshotUtils.takeScreenshot(driver, 12, "Olvidé mi contraseña"); // Screenshot 2
 
     }
 
@@ -95,7 +93,7 @@ public class ForgetPasswordFlowTest {
             ElementUtils.clickElement(driver, By.xpath("//android.view.View[@content-desc='Olvidé mi contraseña']"), "Forget Password Button",wait);
 
             // Screenshot
-            ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña");
+            ScreenshotUtils.takeScreenshot(driver, 11, "Olvidé mi contraseña");
 
             // Inserisce l'email e invia
             ElementUtils.enterText(driver, By.xpath("//android.widget.EditText[@resource-id='uname']"),
@@ -104,7 +102,7 @@ public class ForgetPasswordFlowTest {
             ElementUtils.clickElement(driver, By.xpath("//android.widget.Button[@resource-id='pwd_email_send']"), "Send Button",wait);
 
             // Screenshot finale
-            ScreenshotUtils.takeScreenshot(driver, "Olvidé mi contraseña");
+            ScreenshotUtils.takeScreenshot(driver, 12, "Olvidé mi contraseña");
         } catch (Exception e) {
             throw new RuntimeException("Test Forget Password Flow Failed", e);
         }

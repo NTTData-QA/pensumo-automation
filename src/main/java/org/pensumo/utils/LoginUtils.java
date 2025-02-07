@@ -50,7 +50,6 @@ public class LoginUtils {
  */
 package org.pensumo.utils;
 
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -115,7 +114,9 @@ public class LoginUtils {
             for (int i = 0; i < 3; i++) {
                 SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
             }
-            WebElement nextButton = driver.findElement(NEXT_BUTTON);
+
+
+            WebElement nextButton = wait.until(ExpectedConditions.visibilityOfElementLocated(NEXT_BUTTON));
             nextButton.click();
 
 

@@ -23,7 +23,7 @@ public class AmazonFlowTest {
         @Test(priority = 15)
         public void testAmazon () throws InterruptedException {
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
 
             WebElement featuredWidget = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
             featuredWidget.click();
@@ -33,14 +33,14 @@ public class AmazonFlowTest {
             WebElement amazonTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"AMAZON\"]")));
 
             //Thread.sleep(3000);
-            ScreenshotUtils.takeScreenshot(driver, "Amazon");
+            ScreenshotUtils.takeScreenshot(driver, 38, "Amazon");
             SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
             SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
             //WebElement promotionsPage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("Promociones . Añadir Xpath")));
             //promotionsPage.click();
             Thread.sleep(3000);
 
-            ScreenshotUtils.takeScreenshot(driver, "Amazon");
+            ScreenshotUtils.takeScreenshot(driver, 39, "Amazon");
         }
         @AfterClass
         public void tearDown() {

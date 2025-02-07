@@ -38,10 +38,10 @@ public class RegistrationFlowTest {
         // Usuario
         WebElement userField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id=\"email\"]")));
         // Screenshot clean page
-        ScreenshotUtils.takeScreenshot(driver, "Register");
+        ScreenshotUtils.takeScreenshot(driver, 13, "Register");
         userField.sendKeys("fulanito@menganito.com");
         // Screenshot after usuario
-        ScreenshotUtils.takeScreenshot(driver, "Register");
+        ScreenshotUtils.takeScreenshot(driver, 14, "Register");
 
        // Password
         WebElement pwdField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id=\"password\"]")));
@@ -69,7 +69,7 @@ public class RegistrationFlowTest {
         Thread.sleep(2000);
 
         // Screenshot after Wrong Pwd
-        ScreenshotUtils.takeScreenshot(driver, "Register");
+        ScreenshotUtils.takeScreenshot(driver, 15, "Register");
 
     }
 

@@ -119,39 +119,51 @@ public class ScreenshotToWordUtils {
         Arrays.sort(screenshotFiles, Comparator.comparingInt(ScreenshotToWordUtils::extractNumber));
 
         try (XWPFDocument document = new XWPFDocument()) {
+            // Controlla se il file di output esiste già e, in tal caso, eliminalo
+            File outputFile = new File(outputFilePath);
+            if (outputFile.exists()) {
+                if (outputFile.delete()) {
+                    System.out.println("Old file deleted successfully.");
+                } else {
+                    System.out.println("Failed to delete the old file.");
+                }
+            }
+
             for (File screenshotFile : screenshotFiles) {
-                // Create table
+                // Crea la tabella
                 XWPFTable table = document.createTable(3, 1);
 
-                // Remove table borders
+                // Rimuovi i bordi della tabella
                 for (XWPFTableRow row : table.getRows()) {
                     for (XWPFTableCell cell : row.getTableCells()) {
                         cell.setVerticalAlignment(XWPFTableCell.XWPFVertAlign.CENTER);
-                        // Set invisible borders
+                        // Imposta bordi invisibili
                         cell.getCTTc().addNewTcPr().addNewNoWrap();
                     }
                 }
 
-                // Title
+                // Titolo
                 XWPFTableCell titleCell = table.getRow(0).getCell(0);
                 XWPFParagraph titleParagraph = titleCell.addParagraph();
-                titleParagraph.setAlignment(ParagraphAlignment.CENTER); // Align to center
-                titleParagraph.createRun().setText(screenshotFile.getName().replaceFirst("^\\d+_", "").replaceFirst("\\.png$", ""));
+                titleParagraph.setAlignment(ParagraphAlignment.CENTER); // Allinea al centro
+                //titleParagraph.createRun().setText(screenshotFile.getName());
+                titleParagraph.createRun().setText(cleanFileName(screenshotFile.getName()));
 
-                // Image
+
+                // Immagine
                 XWPFTableCell imageCell = table.getRow(1).getCell(0);
                 XWPFParagraph imageParagraph = imageCell.addParagraph();
                 try {
                     byte[] imageBytes = Files.readAllBytes(screenshotFile.toPath());
-                    XWPFRun imageRun = imageParagraph.createRun(); // Add a paragraph for the image
+                    XWPFRun imageRun = imageParagraph.createRun(); // Aggiungi un paragrafo per l'immagine
                     imageRun.addPicture(
-                            new FileInputStream(screenshotFile), // Read the image file directly
-                            XWPFDocument.PICTURE_TYPE_PNG,       // Image type
-                            screenshotFile.getName(),            // Image name
-                            Units.toEMU(220),             // Image width
-                            Units.toEMU(450)              // Image height
+                            new FileInputStream(screenshotFile), // Leggi il file immagine direttamente
+                            XWPFDocument.PICTURE_TYPE_PNG,       // Tipo di immagine
+                            screenshotFile.getName(),            // Nome dell'immagine
+                            Units.toEMU(220),             // Larghezza dell'immagine
+                            Units.toEMU(450)              // Altezza dell'immagine
                     );
-                    imageParagraph.setAlignment(ParagraphAlignment.CENTER); // Center the image
+                    imageParagraph.setAlignment(ParagraphAlignment.CENTER); // Centra l'immagine
                 } catch (IOException e) {
                     System.err.println("Error while adding the screenshot: " + screenshotFile.getName());
                     e.printStackTrace();
@@ -159,19 +171,19 @@ public class ScreenshotToWordUtils {
                     throw new RuntimeException(e);
                 }
 
-                // Observations
+                // Osservazioni
                 XWPFTableCell observationsCell = table.getRow(2).getCell(0);
                 XWPFParagraph observationsParagraph = observationsCell.addParagraph();
-                observationsParagraph.setAlignment(ParagraphAlignment.LEFT); // Align to left
-                // Add a placeholder visible text for the observations
+                observationsParagraph.setAlignment(ParagraphAlignment.LEFT); // Allinea a sinistra
+                // Aggiungi un testo segnaposto per le osservazioni
                 observationsParagraph.createRun().setText("Observations:");
 
-                // Add a page break
+                // Aggiungi un'interruzione di pagina
                 XWPFParagraph pageBreak = document.createParagraph();
                 pageBreak.setPageBreak(true);
             }
 
-            // Write the document to a file
+            // Scrivi il documento su un file
             try (FileOutputStream outputStream = new FileOutputStream(outputFilePath)) {
                 document.write(outputStream);
                 System.out.println("Word document created successfully: " + outputFilePath);
@@ -191,5 +203,11 @@ public class ScreenshotToWordUtils {
             System.err.println("Invalid file name format: " + name);
             return Integer.MAX_VALUE; // Metti in fondo i file che non seguono il formato
         }
+
+
+    }
+    private static String cleanFileName(String fileName) {
+        return fileName.replaceFirst("^\\d+_", "") // Rimuove il numero iniziale e l'underscore
+                .replace(".png", "");      // Rimuove l'estensione .png
     }
 }

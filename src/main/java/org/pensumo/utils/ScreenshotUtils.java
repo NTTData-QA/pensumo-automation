@@ -1,3 +1,4 @@
+
 package org.pensumo.utils;
 
 import org.openqa.selenium.OutputType;
@@ -10,22 +11,22 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
 public class ScreenshotUtils {
-    private static int screenshotCounter = 3;
-
-    public static void takeScreenshot(WebDriver driver, String className) {
+    public static void takeScreenshot(WebDriver driver, int screenshotNumber, String className) {
         File screenshotDir = new File("screenshots");
         if (!screenshotDir.exists()) {
             screenshotDir.mkdirs();
         }
-        // Usa el contador como número de captura
-        String fileName = screenshotCounter + "_" + className + ".png";
+        String fileName = screenshotNumber + "_" + className + ".png";
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File screenshotFile = new File(screenshotDir, fileName);
         try {
             Files.copy(screenshot.toPath(), screenshotFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            screenshotCounter++; // Incrementa el contador después de guardar
+            //Files.copy(screenshot.toPath(), screenshotFile.toPath());// questo non sovrascrive
         } catch (IOException e) {
             throw new RuntimeException("Failed to save screenshot", e);
         }
     }
 }
+
+
+

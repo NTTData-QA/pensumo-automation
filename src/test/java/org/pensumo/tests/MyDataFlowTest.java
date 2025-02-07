@@ -26,35 +26,36 @@ public class MyDataFlowTest {
         @Test(priority = 19)
         public void testMyData() throws InterruptedException{
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
 
             WebElement profileButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
             profileButton.click();
             WebElement myData = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Mis Datos\"]")));
             myData.click();
-            ScreenshotUtils.takeScreenshot(driver, "Mis Datos");
+            ScreenshotUtils.takeScreenshot(driver, 54, "Mis Datos");
 
             WebElement modifyEmail = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")));
             modifyEmail.click();
             SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
             WebElement modifyPhone = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")));
             modifyPhone.click();
-            ScreenshotUtils.takeScreenshot(driver, "Mis Datos");
+            ScreenshotUtils.takeScreenshot(driver, 55, "Mis Datos");
 
 
 
-            WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.EditText[@text=\"raulgalerasancho@gmail.com\"]")));
+            WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.EditText[@text=\"efatas@gmail.com\"]")));
             emailField.clear();
             emailField.click();
             driver.pressKey(new KeyEvent(AndroidKey.I));
             driver.pressKey(new KeyEvent(AndroidKey.A));
             driver.pressKey(new KeyEvent(AndroidKey.R));
             driver.pressKey(new KeyEvent(AndroidKey.Y));
+            driver.pressKey(new KeyEvent(AndroidKey.ENTER));
             driver.hideKeyboard();
 
 
 
-            WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.EditText[@text=\"616554698\"]")));
+            WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.EditText[@text=\"689007187\"]")));
             phoneField.clear();
             phoneField.click();
             driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
@@ -63,14 +64,14 @@ public class MyDataFlowTest {
             driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
             driver.pressKey(new KeyEvent(AndroidKey.ENTER));
             Thread.sleep(1000);
-            ScreenshotUtils.takeScreenshot(driver, "Mis Datos");
+            ScreenshotUtils.takeScreenshot(driver, 56, "Mis Datos");
 
 
             WebElement backButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageButton")));
             backButton.click();
             WebElement messageLeave = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageButton")));
 
-            ScreenshotUtils.takeScreenshot(driver, "Mis Datos");
+            ScreenshotUtils.takeScreenshot(driver, 57, "Mis Datos");
 
         }
     @AfterClass

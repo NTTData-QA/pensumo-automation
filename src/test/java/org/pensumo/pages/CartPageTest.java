@@ -30,7 +30,7 @@ public class CartPageTest {
             WebElement cartButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[2]")));
             cartButton.click();
             WebElement commerceTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"COMERCIOS\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Home Page");
+            ScreenshotUtils.takeScreenshot(driver, 31, "Home Page");
         }
 
         @AfterClass

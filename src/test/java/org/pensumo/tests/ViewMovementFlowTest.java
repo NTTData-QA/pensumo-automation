@@ -27,22 +27,25 @@ public class ViewMovementFlowTest {
         @Test(priority = 12)
         public void testViewMovement() {
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
-            //TODO
-            WebElement accumulatedWidget = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("Accumulated widjet. Añadir Xpath")));
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
+
+            WebElement accumulatedWidget = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"ACUMULADO\"]")));
             accumulatedWidget.click();
 
-            WebElement accumulatedTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("Accumulated title. Añadir Xpath")));
+            //WebElement accumulatedTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("Accumulated title. Añadir Xpath")));
 
-            ScreenshotUtils.takeScreenshot(driver, "Ver Movimiento");
-
+            ScreenshotUtils.takeScreenshot(driver, 33, "Ver Movimiento");
+            //TODO
+            /*
             WebElement firstMovementWidjet = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("First Movement widjet. Añadir Xpath")));
             firstMovementWidjet.click();
 
             WebElement firstMovementTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("First Movement tile. Añadir Xpath")));
 
-            ScreenshotUtils.takeScreenshot(driver, "Ver Movimiento");
+            ScreenshotUtils.takeScreenshot(driver, 34, "Ver Movimiento");
 
+
+             */
         }
 
         @AfterClass

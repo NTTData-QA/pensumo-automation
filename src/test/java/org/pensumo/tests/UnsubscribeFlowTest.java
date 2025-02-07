@@ -29,18 +29,18 @@ public class UnsubscribeFlowTest {
         @Test(priority = 26)
         public void testUnsubscribe() {
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"acrespov@nttdata.com", "Pensumo21!");
             WebElement profileButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
             profileButton.click();
 
             WebElement unsubscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Darse de baja\"]")));
             unsubscribe.click();
             WebElement yesButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.Button[@text=\"Sí, darme de baja\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Darse de baja");
+            ScreenshotUtils.takeScreenshot(driver, 84, "Darse de baja");
 
             yesButton.click();
             WebElement unsubscribeTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Darse de baja\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Darse de baja");
+            ScreenshotUtils.takeScreenshot(driver, 85, "Darse de baja");
 
 
             WebElement codeField = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.EditText")));
@@ -52,12 +52,12 @@ public class UnsubscribeFlowTest {
             driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
             driver.pressKey(new KeyEvent(AndroidKey.ENTER));
             driver.hideKeyboard();
-            ScreenshotUtils.takeScreenshot(driver, "Darse de baja");
+            ScreenshotUtils.takeScreenshot(driver, 86, "Darse de baja");
 
             WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath("//android.widget.Button[@text=\"Continuar\"]")));
             continueButton.click();
             WebElement wrongCodeLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Código de confirmación incorrecto\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Darse de baja");
+            ScreenshotUtils.takeScreenshot(driver, 87, "Darse de baja");
 
             WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.Button[@text=\"Cerrar\"]")));
             //android.widget.ImageButton      X

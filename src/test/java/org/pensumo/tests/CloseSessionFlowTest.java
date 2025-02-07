@@ -24,18 +24,18 @@ public class CloseSessionFlowTest {
         @Test(priority = 27)
         public void testCloseSession() {
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
             WebElement profileButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
             profileButton.click();
 
             SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
             SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
             WebElement closeSession = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Cerrar sesión\")"));
+            ScreenshotUtils.takeScreenshot(driver, 88, "Cerrar Sesión");
             closeSession.click();
-            ScreenshotUtils.takeScreenshot(driver, "Cerrar Sesión");
 
             WebElement closeSessionButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.Button[@text=\"Cerrar sesión\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Cerrar Sesión");
+            ScreenshotUtils.takeScreenshot(driver, 89, "Cerrar Sesión");
         }
     @AfterClass
     public void tearDown() {

@@ -28,7 +28,7 @@ public class CommerceDetailFlowTest {
         @Test(priority = 17)
         public void testCommerceDetail() throws InterruptedException{
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
             WebElement seeCommerce = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"Ver comercios\"]")));
             seeCommerce.click();
             WebElement categoriesPage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Categorías\"]")));
@@ -41,15 +41,15 @@ public class CommerceDetailFlowTest {
             WebElement commerceButtonLibreriaAlbareda = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"Librería Albareda\"]")));
             commerceButtonLibreriaAlbareda.click();
             WebElement libraryAlbaredaTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"Librería Albareda\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            ScreenshotUtils.takeScreenshot(driver, 45, "Detalle Comercio");
 
             WebElement informationTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Información\"]")));
             informationTitle.click();
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            ScreenshotUtils.takeScreenshot(driver, 46, "Detalle Comercio");
 
             WebElement conditionTitleLibreriaAlbareda = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Condiciones\"]")));
             conditionTitleLibreriaAlbareda.click();                                                                                      //android.widget.Button[@text="Condiciones"]
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            ScreenshotUtils.takeScreenshot(driver, 47, "Detalle Comercio");
 
             waitForElementAndClick(driver, wait, BACK_COMMERCE_BUTTON);
             waitForElementAndClick(driver, wait, BACK_CATEGORIES_BUTTON);
@@ -58,10 +58,11 @@ public class CommerceDetailFlowTest {
             other.click();
             WebElement eliteCustomeGift = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"ELITE CUSTOME GIFT SL\"]")));
             eliteCustomeGift.click();
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            Thread.sleep(1000);
+            ScreenshotUtils.takeScreenshot(driver, 48, "Detalle Comercio");
             WebElement conditionTitleEliteCustomeGift = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Condiciones\"]")));
             conditionTitleEliteCustomeGift.click();
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            ScreenshotUtils.takeScreenshot(driver, 47, "Detalle Comercio");
 
             waitForElementAndClick(driver, wait, BACK_COMMERCE_BUTTON);
             waitForElementAndClick(driver, wait, BACK_CATEGORIES_BUTTON);
@@ -70,10 +71,10 @@ public class CommerceDetailFlowTest {
             WebElement commerceButtonCasademontZaragoza = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"Casademont Zaragoza\"]")));
             commerceButtonCasademontZaragoza.click();
             WebElement casademontZaragozaTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"Casademont Zaragoza\"]")));
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            ScreenshotUtils.takeScreenshot(driver, 49, "Detalle Comercio");
             WebElement conditionTitleCasademontZaragoza = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Condiciones\"]")));
             conditionTitleCasademontZaragoza.click();
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            ScreenshotUtils.takeScreenshot(driver, 50, "Detalle Comercio");
 
             waitForElementAndClick(driver, wait, BACK_COMMERCE_BUTTON);
             waitForElementAndClick(driver, wait, BACK_CATEGORIES_BUTTON);
@@ -83,10 +84,13 @@ public class CommerceDetailFlowTest {
             childish.click();
             WebElement commerceToysRUs = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup")));
             commerceToysRUs.click();
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            WebElement widjetToysRUs = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")));
+            ScreenshotUtils.takeScreenshot(driver, 51, "Detalle Comercio");
+
             WebElement conditionTitleToysRUs = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Condiciones\"]")));
             conditionTitleToysRUs.click();
-            ScreenshotUtils.takeScreenshot(driver, "Detalle Comercio");
+            Thread.sleep(3000);
+            ScreenshotUtils.takeScreenshot(driver, 52, "Detalle Comercio");
 
         }
     private static void waitForElementAndClick(AndroidDriver driver, WebDriverWait wait, By locator) {

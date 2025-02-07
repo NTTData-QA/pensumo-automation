@@ -29,7 +29,7 @@ public class FeaturedFlowTest {
         @Test(priority = 13)
         public void testFeatured() {
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
 
             // WebElement featuredWidget = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
             // featuredWidget.click();
@@ -38,7 +38,7 @@ public class FeaturedFlowTest {
 
             WebElement featuredPage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text=\"Destacados\"]")));
 
-            ScreenshotUtils.takeScreenshot(driver, "Destacados");
+            ScreenshotUtils.takeScreenshot(driver, 35, "Destacados");
         }
 
         @AfterClass

@@ -13,11 +13,15 @@ public class DriverManagerUtils {
         if (driver == null) {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("platformName", "Android");
-            //caps.setCapability("appium:deviceName", "Redmi 9T");
-            caps.setCapability("appium:deviceName", "R5CXA2M6NLL");
+            caps.setCapability("appium:deviceName", "6xcugel7ayrktw9h");
+            //caps.setCapability("avd", "SAMSUNG GALAXY A40");
+            //caps.setCapability("platformVersion", "11.0");
+            //caps.setCapability("appium:deviceName", "dcd2bbb7"); RedmiNote 8T
+            //caps.setCapability("appium:deviceName", "1916ce79"); RedmiNote 8T
             caps.setCapability("appium:automationName", "uiautomator2");
             caps.setCapability("appium:appPackage", "es.ibercaja.pensumoapp");
             caps.setCapability("appium:appActivity", "crc6471002644c6ec1325.MainActivity");
+            //caps.setCapability("skipDeviceInitialization", true);
             caps.setCapability("appium:noReset", "false");
             try {
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), caps);

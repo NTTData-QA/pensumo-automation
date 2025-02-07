@@ -41,12 +41,12 @@ public class LegalInfoFlowTest {
         Thread.sleep(3000);
 
         // After cookies
-        ScreenshotUtils.takeScreenshot(driver, "Condiciones de uso"); // Screenshot 1
+        ScreenshotUtils.takeScreenshot(driver, 7, "Condiciones de uso"); // Screenshot 1
 
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);  // Swipe verticale dal basso verso l'alto
 
         //After swipe
-        ScreenshotUtils.takeScreenshot(driver, "Condiciones de uso"); // Screenshot 2
+        ScreenshotUtils.takeScreenshot(driver, 8, "Condiciones de uso"); // Screenshot 2
         // If we want to see all Term&Cond we need more screenshot ( almost 29)
 
 

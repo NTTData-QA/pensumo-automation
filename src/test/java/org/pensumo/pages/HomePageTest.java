@@ -1,6 +1,9 @@
 package org.pensumo.pages;
 
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.pensumo.utils.DriverManagerUtils;
 import org.pensumo.utils.LoginUtils;
@@ -23,8 +26,9 @@ public class HomePageTest {
     @Test(priority = 11)
     public void testHomePage() {
 
-        LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
-        ScreenshotUtils.takeScreenshot(driver, "Home Page");
+        LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
+        WebElement accumulatedWidget = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text=\"ACUMULADO\"]")));
+        ScreenshotUtils.takeScreenshot(driver, 31, "Home Page");
     }
 
     @AfterClass

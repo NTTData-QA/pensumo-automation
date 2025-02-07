@@ -29,7 +29,7 @@ public class LoginPage {
 
         WebElement logo = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Image[@text=\"Pensumo Logo\"]")));
 
-        ScreenshotUtils.takeScreenshot(driver, "Log in_Register Page");
+        ScreenshotUtils.takeScreenshot(driver, 6, "Log in_Register Page");
     }
 
     @AfterClass

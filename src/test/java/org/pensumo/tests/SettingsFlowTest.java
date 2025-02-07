@@ -27,11 +27,12 @@ public class SettingsFlowTest {
         @Test(priority = 18)
         public void testSettings() {
 
-            LoginUtils.performLogin(driver,"raulgalerasancho@gmail.com", "Nttdata_2025");
+            LoginUtils.performLogin(driver,"efatas@gmail.com", "Pensumo2025#");
 
             WebElement profileButton = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")));
             profileButton.click();
-            ScreenshotUtils.takeScreenshot(driver, "Ajustes");
+            WebElement myData = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Mis Datos\"]")));
+            ScreenshotUtils.takeScreenshot(driver, 53, "Ajustes");
 
         }
     @AfterClass

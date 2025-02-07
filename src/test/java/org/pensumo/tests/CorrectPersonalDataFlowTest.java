@@ -24,8 +24,39 @@ public class CorrectPersonalDataFlowTest {
 
     @Test(priority = 10)
     public void testPersonalDataFlowTest() throws InterruptedException{
-        LoginUtils.performLogin(driver,"iary.corsiero@libero.it", "Nttdata_2025");
+        LoginUtils.performLogin(driver,"iary.corsiero@libero.it", "Pensumo21!");
         LoginUtils.handleIntroPage(driver, wait);
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        /*
+        WebElement jumpButton = driver.findElement(By.xpath("//android.widget.TextView[@text='Saltar']"));
+        jumpButton.click();
+
+        Thread.sleep(10000);
+
+        WebElement startSessionBotton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.view.View[@content-desc=\"Iniciar sesión\"]")));
+        startSessionBotton.click();
+
+        // WebElement userField = driver.findElement(By.id("uname"));
+        WebElement userField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id=\"uname\"]")));
+        userField.sendKeys("iary.corsiero@libero.it");
+
+        //WebElement pwdField = driver.findElement(By.id("upassword"));
+        WebElement pwdField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id=\"upassword\"]")));
+        pwdField.sendKeys("Pensumo21!");
+
+        WebElement loginBotton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Button[@resource-id=\"login_btn\"]")));
+        loginBotton.click();
+        Thread.sleep(3000);
+
+        // After Login
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        WebElement nextBotton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageButton")));
+        nextBotton.click();
+        Thread.sleep(3000);
+
+         */
         WebElement headParsonalData = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Datos personales y creación de cuenta\"]")));
 
         //Filling fields for wrong test
@@ -37,7 +68,7 @@ public class CorrectPersonalDataFlowTest {
         WebElement surnameField = driver.findElement(By.xpath("//android.widget.EditText[@text=\"ej. Perez García\"]"));
         surnameField.sendKeys("MENGANITO");
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 21, "Datos Personales");
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
 
         //Dni
@@ -71,22 +102,32 @@ public class CorrectPersonalDataFlowTest {
         //MobilePhone
         WebElement phoneField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. 000 000 000\"]")));
         phoneField.sendKeys("699505050");
+
+/*
+        //Date of Birth --> Este no funciona en cuanto entra la fecha correcta pero la detecta como equivocada , hay que pasar por el calendario
+        By dateFieldLocator = By.xpath("//android.widget.EditText[@text='14/01/2026']");
+        WebElement dateField = driver.findElement(dateFieldLocator);
+        //dateField.clear();  // Pulisce il campo
+        dateField.sendKeys("29/09/1975");
+        WebElement outsideElement = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout"));
+        outsideElement.click();
+*/
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 22, "Datos Personales");
         WebElement generalConditions = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Condiciones Generales\"]"));
         generalConditions.click();
         Thread.sleep(3000);
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 23, "Datos Personales");
 
         //implementare cancel e cerrar
         WebElement downloadConditions = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Descargar Condiciones de uso\"]"));
         downloadConditions.click();
         Thread.sleep(3000);
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 24, "Datos Personales");
 
         driver.navigate().back();
         WebElement cerrarDCWindow = driver.findElement(By.xpath("//android.widget.Button[@text=\"Cerrar\"]"));
@@ -94,21 +135,21 @@ public class CorrectPersonalDataFlowTest {
         WebElement radioButtonConditions = driver.findElement(By.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"));
         radioButtonConditions.click();
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 25, "Datos Personales");
 
         Thread.sleep(1000);
         WebElement continuarButton = driver.findElement(By.xpath("//android.widget.Button[@text=\"Continuar\"]"));
         continuarButton.click();
         Thread.sleep(1000);
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 26, "Datos Personales");
 
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         WebElement basicInfoButton = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Información Básica de Protección de Datos Personales\"]"));
         basicInfoButton.click();
         Thread.sleep(1000);
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 27, "Datos Personales");
 
         WebElement basicInfoRadioButton = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup[1]"));
         basicInfoRadioButton.click();
@@ -120,25 +161,25 @@ public class CorrectPersonalDataFlowTest {
         WebElement radioButtonCommercialComunicationsNo1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']")));
         radioButtonCommercialComunicationsNo1.click();
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 28, "Datos Personales");
 
-        /*SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
+        SwipeUtils.swipeVertical(driver, 0.6, 0.4, 0.5, 1000);
         WebElement radioButtonCommercialComunicationsNo2 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
         radioButtonCommercialComunicationsNo2.click();
 
-        SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         WebElement radioButtonCommercialComunicationsSi3 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
         radioButtonCommercialComunicationsSi3.click();
 
-        SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         WebElement radioButtonCommercialComunicationsSi4 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
         radioButtonCommercialComunicationsSi4.click();
 
-        SwipeUtils.swipeVertical(driver, 0.8, 0.3, 0.5, 1000);
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         WebElement radioButtonAcceptCommercialComunications = driver.findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup"));
         radioButtonAcceptCommercialComunications.click();
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");
+        ScreenshotUtils.takeScreenshot(driver, 29, "Datos Personales");
 
         WebElement radioButtonCommercialComunicationsNo5 = driver.findElement(By.xpath("//android.widget.RadioButton[@text='No' and @checked='false']"));
         radioButtonCommercialComunicationsNo5.click();
@@ -146,8 +187,8 @@ public class CorrectPersonalDataFlowTest {
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
         radioButtonAcceptCommercialComunications.click();
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos Personales");*/
-        Thread.sleep(20000);
+        ScreenshotUtils.takeScreenshot(driver, 30, "Datos Personales");
+
     }
 
     public static void swipeUntilElementFound(WebDriver driver, By locator, int maxSwipes) {

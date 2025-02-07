@@ -2,6 +2,7 @@
 <suite name="Pensumo Test Suite" parallel="false" verbose="2">
     <test name="Complete Pensumo test">
         <classes>
+            <!--
             <class name="org.pensumo.tests.SplashScreenFlowTest" />
             <class name="org.pensumo.tests.CarouselTutorialFlowTest" />
             <class name="org.pensumo.pages.LoginPage" />
@@ -12,7 +13,8 @@
             <class name="org.pensumo.tests.IntroRegistrationFlowTest" />
             <class name="org.pensumo.tests.WrongPersonalDataFlowTest" />
             <class name="org.pensumo.tests.CorrectPersonalDataFlowTest" />
-            <!--<class name="org.pensumo.pages.HomePageTest" />
+            -->
+            <class name="org.pensumo.pages.HomePageTest" />
             <class name="org.pensumo.tests.ViewMovementFlowTest" />
             <class name="org.pensumo.tests.FeaturedFlowTest" />
             <class name="org.pensumo.tests.ForYouFlowTest" />
@@ -22,13 +24,14 @@
             <class name="org.pensumo.tests.SettingsFlowTest" />
             <class name="org.pensumo.tests.MyDataFlowTest" />
             <class name="org.pensumo.tests.ConsentsFlowTest" />
+            <class name="org.pensumo.tests.DataProtectionFlowTest" />
             <class name="org.pensumo.tests.MyContractsFlowTest" />
             <class name="org.pensumo.tests.LinkedCardsFlowTest" />
             <class name="org.pensumo.tests.PensionPlanFlowTest" />
             <class name="org.pensumo.tests.HelpAndContactFlowTest" />
             <class name="org.pensumo.tests.UnsubscribeFlowTest" />
             <class name="org.pensumo.tests.CloseSessionFlowTest" />
-            <class name="org.pensumo.tests.DataProtectionFlowTest" />-->
+
         </classes>
     </test>
 </suite>

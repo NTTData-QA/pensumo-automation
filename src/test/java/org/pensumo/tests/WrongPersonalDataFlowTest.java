@@ -26,56 +26,26 @@ public class WrongPersonalDataFlowTest {
 
     @Test(priority = 9)
     public void testPersonalDataFlowTest() throws InterruptedException{
-        LoginUtils.performLogin(driver,"iary.corsiero@libero.it", "Nttdata_2025");
+        LoginUtils.performLogin(driver,"iary.corsiero@libero.it", "Pensumo21!");
         LoginUtils.handleIntroPage(driver, wait);
-        /*
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        WebElement jumpButton = driver.findElement(By.xpath("//android.widget.TextView[@text='Saltar']"));
-        jumpButton.click();
 
-        Thread.sleep(10000);
-
-        WebElement startSessionBotton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.view.View[@content-desc=\"Iniciar sesión\"]")));
-        startSessionBotton.click();
-
-        // WebElement userField = driver.findElement(By.id("uname"));
-        WebElement userField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id=\"uname\"]")));
-        userField.sendKeys("iary.corsiero@libero.it");
-
-        //WebElement pwdField = driver.findElement(By.id("upassword"));
-        WebElement pwdField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@resource-id=\"upassword\"]")));
-        pwdField.sendKeys("Nttdata_2025");
-
-        WebElement loginBotton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Button[@resource-id=\"login_btn\"]")));
-        loginBotton.click();
-        Thread.sleep(5000);
-
-        // After Login
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        WebElement nextBotton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageButton")));
-        nextBotton.click();
-
-        */
         WebElement headParsonalData = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text=\"Datos personales y creación de cuenta\"]")));
-        ScreenshotUtils.takeScreenshot(driver, "Datos personales"); // Screenshot 1
+        ScreenshotUtils.takeScreenshot(driver, 18, "Datos personales"); // Screenshot 1
 
         //Filling fields for wrong test
         //Name
         WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. Pilar\"]")));
-        nameField.click();
-        nameField.sendKeys("AA");
+        nameField.sendKeys("AAA");
         nameField.clear();
         driver.hideKeyboard();
         //surname
         WebElement surnameField = driver.findElement(By.xpath("//android.widget.EditText[@text=\"ej. Perez García\"]"));
         surnameField.click();
-        surnameField.sendKeys("AA");
+        surnameField.sendKeys("AAA");
         surnameField.clear();
         driver.hideKeyboard();
         SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
-        ScreenshotUtils.takeScreenshot(driver, "Datos personales");
+        ScreenshotUtils.takeScreenshot(driver, 19, "Datos personales");
         //Dni
         WebElement dniField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. 56743917R\"]")));
         dniField.click();
@@ -96,7 +66,7 @@ public class WrongPersonalDataFlowTest {
         WebElement phoneField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@text=\"ej. 000 000 000\"]")));
         phoneField.sendKeys("0000000");
 
-        ScreenshotUtils.takeScreenshot(driver, "Datos personales");
+        ScreenshotUtils.takeScreenshot(driver, 20, "Datos personales");
         /*
         //Date of Birth
         By dateFieldLocator = By.xpath("//android.widget.EditText[@text='14/01/2026']");
