@@ -24,13 +24,13 @@
             <class name="org.pensumo.tests.SettingsFlowTest" />
             <class name="org.pensumo.tests.MyDataFlowTest" />
             <class name="org.pensumo.tests.ConsentsFlowTest" />
-            <class name="org.pensumo.tests.DataProtectionFlowTest" />
             <class name="org.pensumo.tests.MyContractsFlowTest" />
             <class name="org.pensumo.tests.LinkedCardsFlowTest" />
             <class name="org.pensumo.tests.PensionPlanFlowTest" />
             <class name="org.pensumo.tests.HelpAndContactFlowTest" />
             <class name="org.pensumo.tests.UnsubscribeFlowTest" />
             <class name="org.pensumo.tests.CloseSessionFlowTest" />
+            <class name="org.pensumo.tests.DataProtectionFlowTest" />
 
         </classes>
     </test>
