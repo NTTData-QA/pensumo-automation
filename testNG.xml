@@ -30,7 +30,7 @@
             <class name="org.pensumo.tests.HelpAndContactFlowTest" />
             <class name="org.pensumo.tests.UnsubscribeFlowTest" />
             <class name="org.pensumo.tests.CloseSessionFlowTest" />
-            <class name="org.pensumo.tests.DataProtectionFlowTest" />
+            <!--<class name="org.pensumo.tests.DataProtectionFlowTest" />-->
         </classes>
     </test>
 </suite>

@@ -63,6 +63,7 @@ public class DataProtectionFlowTest {
     chooseReader.click();
     Thread.sleep(3000);
     ScreenshotUtils.takeScreenshot(driver, 64, "Protección de datos");
+    DriverManagerUtils.quitDriver();
     /*driver.pressKey(new KeyEvent(AndroidKey.BACK));
     driver.pressKey(new KeyEvent(AndroidKey.BACK));
     driver.pressKey(new KeyEvent(AndroidKey.BACK));
