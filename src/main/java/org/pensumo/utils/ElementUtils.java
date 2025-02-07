@@ -38,4 +38,52 @@ public class ElementUtils {
             throw new RuntimeException("Failed to click " + elementName + ": " + e.getMessage());
         }
     }
+    public static void clickOrScroll(AndroidDriver driver, By locator, String elementName) throws InterruptedException {
+    while (true) {
+      try {
+        WebElement element = driver.findElement(locator);
+        element.click();
+        System.out.println(elementName + " clicked successfully.");
+        break;
+      } catch (Exception e) {
+        // scroll down
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        Thread.sleep(100);
+      }
+    }
+    }
+
+    public static void sendKeysOrScroll(AndroidDriver driver, By locator, String text, String elementName) throws InterruptedException {
+    while (true) {
+      try {
+        WebElement element = driver.findElement(locator);
+        element.sendKeys(text);
+        System.out.println(elementName + " written successfully.");
+        break;
+      } catch (Exception e) {
+        // scroll down
+        SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+        Thread.sleep(100);
+      }
+    }
+    }
+
+    public static void sendKeysOrScroll(AndroidDriver driver, By locator, String text, String elementName, boolean clean) throws InterruptedException {
+        while (true) {
+            try {
+                WebElement element = driver.findElement(locator);
+                element.sendKeys(text);
+                System.out.println(elementName + " written successfully.");
+                if (clean) {
+                    element.clear();
+                    System.out.println(elementName + " cleaned successfully.");
+                }
+                break;
+            } catch (Exception e) {
+                // scroll down
+                SwipeUtils.swipeVertical(driver, 0.8, 0.2, 0.5, 1000);
+                Thread.sleep(100);
+            }
+        }
+    }
 }
